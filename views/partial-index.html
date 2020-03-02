@@ -1,1 +1,13 @@
-<h1>hello world</h1>
+<form name="survey-form" action="/update" method="POST">
+  ${classInfoData.map(entry => { return `
+  <p>
+    ${entry.topic_name} - I am <strong name = "entry">${entry.status_title}</strong> at ${entry.topic_name}
+    <select name="${entry.topic_name}-select">
+    ${topicStatusData.map(status => ` <option value="${status.id}">${status.status_title}</option>`).join('')}
+    </select>
+  </p>
+  ` }).join('')}
+  <button class="button" type="submit">Submit</button>
+</form>
+
+
